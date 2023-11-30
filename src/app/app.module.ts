@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Route } from '@angular/router';
 
@@ -8,6 +8,10 @@ import { HomeComponent } from './home/home.component';
 import { ActivePostsPageComponent } from './active-posts-page/active-posts-page.component';
 import { InactivePostsPageComponent } from './inactive-posts-page/inactive-posts-page.component';
 import { CardComponent } from './card/card.component';
+import { UppercasePipe } from './uppercase.pipe';
+import { HighlightDirective } from './directive/highlight.directive';
+import { DetailsBtnComponent } from './details-btn/details-btn.component';
+import { DetailsPageComponent } from './directive/details-page/details-page.component';
 
 const routes: Route[] = [
   {
@@ -17,6 +21,7 @@ const routes: Route[] = [
   {
     path: 'active-posts',
     component: ActivePostsPageComponent,
+    children: [{ path: 'details', component: DetailsPageComponent }],
   },
   {
     path: 'inactive-posts',
@@ -31,6 +36,10 @@ const routes: Route[] = [
     ActivePostsPageComponent,
     InactivePostsPageComponent,
     CardComponent,
+    UppercasePipe,
+    HighlightDirective,
+    DetailsBtnComponent,
+    DetailsPageComponent,
   ],
   imports: [BrowserModule, RouterModule.forRoot(routes)],
   providers: [],

@@ -8,14 +8,15 @@
     }"
   >
     <h5 class="card-header">
-      <span>{{ post.id }}° Post</span>
+      <span>{{ post.id }}° <span appHighlight>Post</span></span>
     </h5>
     <div class="card-body">
-      <h5 class="card-title">{{ post.title }}</h5>
+      <h5 class="card-title">{{ post.title | uppercase }}</h5>
       <p class="card-text">
         {{ post.body }}
       </p>
       <ng-content></ng-content>
+      <app-details-btn [routerLink]="['details']"></app-details-btn>
     </div>
   </div>
 </div>
